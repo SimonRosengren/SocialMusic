@@ -1,7 +1,7 @@
 ﻿@model SocialMusic.Models.User
 
 <div class="logInBox">
-    @using (Html.BeginForm("Login", "Home"))
+    @using (Html.BeginForm())
     {
         <p class="siteLogo">Social<strong>Music</strong></p>
         <br />
@@ -9,7 +9,7 @@
         <br />
         @Html.EditorFor(s => s.Password, new { htmlAttributes = new { placeholder = "Password" } });
         <br />
-        <button type="submit" class="logInButton">Login</button>
+        <button type="submit" class="logInButton">Register</button>
     }
 </div>
 

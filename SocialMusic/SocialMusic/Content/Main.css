@@ -17,15 +17,12 @@ input[type=text], select {
     width: 30%;
     padding: 12px 20px;
     margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
     border-radius: 25px;
-    box-sizing: border-box;
 }
 
 .logInButton {
     width: 25%;
-    background-color: #b7b9bc; /* Green */
+    background-color: #b7b9bc; 
     border: none;
     border-radius: 25px;
     color: white;
