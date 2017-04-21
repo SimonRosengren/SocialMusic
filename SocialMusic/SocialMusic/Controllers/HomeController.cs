@@ -1,4 +1,5 @@
-﻿using SocialMusic.Models;
+﻿using SocialMusic.Handlers;
+using SocialMusic.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,17 @@ namespace SocialMusic.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult LogIn(User user)
+        {
+            var authentificationHandler = new AuthentificationHandler(Session);
+
+            if (authentificationHandler.LogIn(user))
+            {
+                return RedirectToAction("Index", "Profile");
+            }
+            return RedirectToAction("Index");
+        }
         [HttpGet]
         public ActionResult Register()
         {
@@ -21,12 +33,14 @@ namespace SocialMusic.Controllers
         [HttpPost]
         public ActionResult Register(User user)
         {
+            var authentificationHandler = new AuthentificationHandler(Session);
             using (var db = new UserDbContext())
             {
                 user.Created = DateTime.Now;
-                
+                user.Password = authentificationHandler.HashPassword(user.Password);
 
                 db.Users.Add(user);
+
                 db.SaveChanges();
             }
             return Redirect("Index");

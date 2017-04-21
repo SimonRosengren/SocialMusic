@@ -10,6 +10,8 @@
         @Html.EditorFor(s => s.Password, new { htmlAttributes = new { placeholder = "Password" } });
         <br/>
         <button type="submit" class="logInButton">Login</button>
+        <br/>
+        <h3>Not a member? @Html.ActionLink("Register", "Register") </h3>
     }
 </div>
 

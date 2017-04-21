@@ -1,32 +1,44 @@
 ﻿body {
-    background-color: #2c4a77;
+    background-image: url("http://wallpaperlayer.com/img/2015/1/blurred-city-lights-wallpaper-7607-7901-hd-wallpapers.jpg");
 }
 .siteLogo{
     font-family: 'Gruppo', cursive;
     font-size: 70px;
     font-weight: 100;
     color: #eaf2ff;
+    margin: 1px;
 }
 .logInBox{
     text-align: center;
     position: relative;
-    transform: translateY(30%);
+    transform: translateY(100%);
 }
 
 input[type=text], select {
-    width: 30%;
-    padding: 12px 20px;
+    background-color: rgba(70, 91, 111, 0.3);
+    width: 25%;
+    text-align: center;
+    color: white;
+    padding: 8px 20px;
     margin: 8px 0;
-    border-radius: 25px;
+    border-radius: 5px;  
+    border-color: rgba(70, 91, 111, 0.0);
+}
+h3{
+    font-family: 'Gruppo', cursive;
+    font-size: 20px;
+    font-weight: 100;
+    color: #eaf2ff;
 }
 
 .logInButton {
-    width: 25%;
-    background-color: #b7b9bc; 
+    margin: 8px 0;
+    width: 27%;
+    background-color: rgba(68, 196, 151, 0.4); 
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
     color: white;
-    padding: 15px 32px;
+    padding: 12px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -34,5 +46,5 @@ input[type=text], select {
 }
 
 .logInButton:hover {
-    background-color: #969696;
+      background-color: rgba(68, 196, 151, 0.8); 
 }
