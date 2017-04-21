@@ -1,7 +1,17 @@
-﻿
+﻿@model SocialMusic.Models.User
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Log in</h2>
+<div class="logInBox">
+    @using (Html.BeginForm("Login", "Home"))
+    {
+        @Html.EditorFor(s => s.Username, new { htmlAttributes = new { placeholder = "Username" } });
+        <br/>
+        @Html.EditorFor(s => s.Password, new { htmlAttributes = new { placeholder = "Password" } });
+        <br/>
+        <button type="submit" class="logInButton">Login</button>
+    }
+</div>
 
