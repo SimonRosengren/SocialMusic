@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Albums</h2>
+
+<div>
+<h2>All Albums</h2>
+<ul id="album" />
+  </div>
+<div>
+    <h2>Search by ID</h2>
+    <input type="text" id="albumId" size="5" />
+    <input type="button" value="Search" onclick="find();" />
+    <p id="album" />
+</div>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+<script>
+    var uri = 'api/albumapi';
+
+    $(document).ready(function () {
+      // Send an AJAX request
+      $.getJSON(uri)
+          .done(function (data) {
+            // On success, 'data' contains a list of albums.
+            $.each(data, function (key, item) {
+              // Add a list item for the albums.
+              $('<li>', { text: formatItem(item) }).appendTo($('#album'));
+            });
+          });
+    });
+
+    function formatItem(item) {
+      return item.Name + ' - ' + item.Artist;
+    }
+
+    function find() {
+      var id = $('#albumId').val();
+      $.getJSON(uri + '/' + id)
+          .done(function (data) {
+            $('#album').text(formatItem(data));
+          })
+          .fail(function (jqXHR, textStatus, err) {
+            $('#album').text('Error: ' + err);
+          });
+    }
+</script>

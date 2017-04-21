@@ -1,32 +1,17 @@
-﻿using SocialMusic.Models;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Http;
+using System.Web;
+using System.Web.Mvc;
 
 namespace SocialMusic.Controllers
 {
-    public class AlbumController : ApiController
+    public class AlbumController : Controller
     {
-        Album[] albums = new Album[]
+        // GET: Album
+        public ActionResult Index()
         {
-            new Album {ID = 1, Name = "Coloring Book", Artist = "Chance the rapper"  },
-            new Album {ID = 2, Name = "Starboy", Artist = "The Weeknd" },
-            new Album {ID = 3, Name = "DAMN.", Artist = "Kendrick Lamar" }
-        };
-
-        public IEnumerable<Album> GetAllAlbums()
-        {
-            return albums;
-        }
-
-        public IHttpActionResult GetAlbum(int id)
-        {
-            var album = albums.FirstOrDefault((s) => s.ID == id);
-            if (album == null)
-            {
-                return NotFound();
-            }
-            return Ok(album);
+            return View();
         }
     }
 }
