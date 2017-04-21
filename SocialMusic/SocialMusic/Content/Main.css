@@ -1,10 +1,16 @@
 ﻿body {
     background-color: #2c4a77;
 }
+.siteLogo{
+    font-family: 'Gruppo', cursive;
+    font-size: 70px;
+    font-weight: 100;
+    color: #eaf2ff;
+}
 .logInBox{
     text-align: center;
     position: relative;
-    transform: translateY(160%);
+    transform: translateY(30%);
 }
 
 input[type=text], select {
@@ -31,5 +37,5 @@ input[type=text], select {
 }
 
 .logInButton:hover {
-    background-color: #45a049;
+    background-color: #969696;
 }

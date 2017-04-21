@@ -3,10 +3,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Log in</h2>
+
 <div class="logInBox">
     @using (Html.BeginForm("Login", "Home"))
     {
+        <p class="siteLogo">Social<strong>Music</strong></p>
+        <br/>
         @Html.EditorFor(s => s.Username, new { htmlAttributes = new { placeholder = "Username" } });
         <br/>
         @Html.EditorFor(s => s.Password, new { htmlAttributes = new { placeholder = "Password" } });
