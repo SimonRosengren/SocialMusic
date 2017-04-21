@@ -4,11 +4,11 @@
     @using (Html.BeginForm("Login", "Home"))
     {
         <p class="siteLogo">Social<strong>Music</strong></p>
-        <br/>
+        <br />
         @Html.EditorFor(s => s.Username, new { htmlAttributes = new { placeholder = "Username" } });
-        <br/>
+        <br />
         @Html.EditorFor(s => s.Password, new { htmlAttributes = new { placeholder = "Password" } });
-        <br/>
+        <br />
         <button type="submit" class="logInButton">Login</button>
     }
 </div>
