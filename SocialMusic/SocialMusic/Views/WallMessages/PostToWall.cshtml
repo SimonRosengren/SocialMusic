@@ -1,0 +1,19 @@
+﻿@model SocialMusic.Models.WallMessage
+
+
+
+<h2>Wall</h2>
+
+<div class="wallBox">
+    @using (Html.BeginForm())
+    {
+        <p class="siteLogo">Social<strong>Music</strong></p>
+        <br />
+        @Html.EditorFor(s => s.Message, new { htmlAttributes = new { placeholder = "Message" } });
+        <br />
+        <button type="submit" class="submitButton">Post</button>
+        <br />
+    }
+</div>
+
+

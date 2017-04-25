@@ -19,5 +19,26 @@ namespace SocialMusic.Controllers
 
             return View(messages);
         }
+        [HttpGet]
+        public ActionResult PostToWall()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult PostToWall(string message)
+        {
+            WallMessage m = new WallMessage();
+            using (var db = new WallMessageDbContext())
+            {
+                m.Created = DateTime.Now;
+                m.Message = message;
+
+
+                db.WallMessages.Add(m);
+
+                db.SaveChanges();
+            }
+            return View();
+        }
     }
 }

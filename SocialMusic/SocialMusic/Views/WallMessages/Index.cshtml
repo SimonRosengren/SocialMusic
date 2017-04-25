@@ -1,6 +1,7 @@
-﻿@model SocialMusic.Models.WallMessage[]
+﻿@model Tuple<SocialMusic.Models.WallMessage[], SocialMusic.Models.WallMessage>
 
 <h2>Wall</h2>
+
 
 <ul>
     @foreach (var message in Model)
@@ -8,19 +9,3 @@
         <li>@message.Message</li>
     }
 </ul>
-
-
-<div class="wallBox">
-    @using (Html.BeginForm("Login", "Home"))
-    {
-        <p class="siteLogo">Social<strong>Music</strong></p>
-        <br />
-        @Html.EditorFor(s => s.Username, new { htmlAttributes = new { placeholder = "Username" } });
-        <br />
-        @Html.EditorFor(s => s.Password, new { htmlAttributes = new { placeholder = "Password" } });
-        <br />
-        <button type="submit" class="logInButton">Login</button>
-        <br />
-        <h3>Not a member? @Html.ActionLink("Register", "Register") </h3>
-    }
-</div>
