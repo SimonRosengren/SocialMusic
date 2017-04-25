@@ -25,6 +25,13 @@ namespace SocialMusic.Controllers
             }
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public ActionResult LogOut(User user)
+        {
+            var authentificationHandler = new AuthentificationHandler(Session);
+            authentificationHandler.LogOut();
+            return RedirectToAction("Index");
+        }
         [HttpGet]
         public ActionResult Register()
         {
