@@ -37,7 +37,10 @@ namespace SocialMusic.Controllers
             using (var db = new UserDbContext())
             {
                 user.Created = DateTime.Now;
+
+
                 user.Password = authentificationHandler.HashPassword(user.Password);
+                
 
                 db.Users.Add(user);
 
