@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SocialMusic.Models;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,13 @@ namespace SocialMusic.Controllers
             using (var webClient = new System.Net.WebClient())
             {
                 var json = webClient.DownloadString(url);
-                Album a = JsonConvert.DeserializeObject<Album>(json);
-                album.Name = a.Name;
-                album.Name = json;
-            }
-            
+                //Album a = JsonConvert.DeserializeObject<Album>(json);
+                dynamic root = JObject.Parse(json);
+                //JArray items = (JArray)root["album"]
+
+                album.Name = root.topalbums.album[0].name;
+                album.Artist = root.topalbums.album[0].artist.name;
+            }           
 
             return View(album);
         }
