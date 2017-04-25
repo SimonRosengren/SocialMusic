@@ -15,19 +15,20 @@ namespace SocialMusic.Controllers
         public ActionResult Index()
         {
             var url = "http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=ludderaket&api_key=7d063e651df846f5a4c10e618858189e&format=json";
-            Album album = new Album();
+            Album[] albums = new Album[5];
             using (var webClient = new System.Net.WebClient())
             {
                 var json = webClient.DownloadString(url);
-                //Album a = JsonConvert.DeserializeObject<Album>(json);
                 dynamic root = JObject.Parse(json);
-                //JArray items = (JArray)root["album"]
-
-                album.Name = root.topalbums.album[0].name;
-                album.Artist = root.topalbums.album[0].artist.name;
+                for (int i = 0; i < albums.Length; i++)
+                {
+                    albums[i] = new Album();
+                    albums[i].Name = root.topalbums.album[i].name;
+                    albums[i].Artist = root.topalbums.album[i].artist.name;
+                }              
             }           
 
-            return View(album);
+            return View(albums);
         }
     }
 }
