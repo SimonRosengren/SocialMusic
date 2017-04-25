@@ -7,7 +7,7 @@ namespace SocialMusic.Controllers
 {
     public class AlbumApiController : ApiController
     {
-        Album[] albums = new Album[]
+        /*Album[] albums = new Album[]
         {
             new Album {ID = 1, Name = "Coloring Book", Artist = "Chance the rapper"  },
             new Album {ID = 2, Name = "Starboy", Artist = "The Weeknd" },
@@ -27,6 +27,6 @@ namespace SocialMusic.Controllers
                 return NotFound();
             }
             return Ok(album);
-        }
+        }*/
     }
 }
