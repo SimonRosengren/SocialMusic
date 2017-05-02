@@ -179,6 +179,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\WallMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
