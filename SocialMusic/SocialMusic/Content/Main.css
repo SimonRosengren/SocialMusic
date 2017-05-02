@@ -53,6 +53,5 @@ h3{
 .wallBox{
     text-align: center;
     position: relative;
-    background-color: black;
     transform: translateY(100%);
 }
