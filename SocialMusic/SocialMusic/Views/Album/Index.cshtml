@@ -1,3 +1,4 @@
+﻿@model SocialMusic.Models.ArtistAlbumViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,6 +13,13 @@
 <div>
     
     <ul>
+        @foreach (var album in Model.Albums)
+        {
+            <li>@album.Name - @album.Artist</li>
+        }
+    </ul>   
+    <ul>
+        @foreach (var artist in Model.Artists)
         {
             <li>@artist.Name</li>
         }
