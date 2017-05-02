@@ -10,13 +10,12 @@
     }
 </ul>
 
-<div class="wallBox">
+<div class="wallBox" id="wallBox">
     @using (Html.BeginForm())
     {
-        <p class="siteLogo">Social<strong>Music</strong></p>
-
+        @Html.EditorFor(s => s[Model.Length - 1].Message);
         <br />
-        <button id="subButton">Post</button>
+        <button type="submit" class="logInButton">Login</button>
         <br />
     }
 
@@ -24,15 +23,12 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
 <script>
     var URL = '@Url.Content("~")';
-    function AddMessage(message) {
-        console.log('POSTING...');
+
+    $('form').submit(function () {
         $.ajax({
             type: 'POST',
             url: URL + 'wallmessages/PostToWall',
-            data: {message: message}
+            data: { message: $(this).serialize() }
         })
-    }
-    $('#subButton').click(function () {
-        AddMessage('TEST MESSAGE')
     })
 </script>

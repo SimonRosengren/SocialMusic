@@ -37,7 +37,6 @@ namespace SocialMusic.Controllers
                 m.Created = DateTime.Now;
                 m.Message = message;
 
-
                 db.WallMessages.Add(m);
 
                 db.SaveChanges();

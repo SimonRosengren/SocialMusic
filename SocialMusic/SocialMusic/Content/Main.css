@@ -48,3 +48,11 @@ h3{
 .logInButton:hover {
       background-color: rgba(68, 196, 151, 0.8); 
 }
+
+/*WALL SECTION*/
+.wallBox{
+    text-align: center;
+    position: relative;
+    background-color: black;
+    transform: translateY(100%);
+}
