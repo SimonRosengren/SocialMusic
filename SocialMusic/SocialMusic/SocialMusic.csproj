@@ -202,7 +202,6 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\NotAuthenticated.cshtml" />
     <Content Include="Views\WallMessages\Index.cshtml" />
-    <Content Include="Views\WallMessages\PostToWall.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

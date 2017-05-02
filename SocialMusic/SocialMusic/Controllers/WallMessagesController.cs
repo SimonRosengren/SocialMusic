@@ -19,14 +19,18 @@ namespace SocialMusic.Controllers
 
             return View(messages);
         }
+
+
         [HttpGet]
         public ActionResult PostToWall()
         {
             return View();
         }
+        
         [HttpPost]
-        public ActionResult PostToWall(string message)
+        public void PostToWall(string message)
         {
+            
             WallMessage m = new WallMessage();
             using (var db = new WallMessageDbContext())
             {
@@ -38,7 +42,7 @@ namespace SocialMusic.Controllers
 
                 db.SaveChanges();
             }
-            return View();
         }
+        
     }
 }

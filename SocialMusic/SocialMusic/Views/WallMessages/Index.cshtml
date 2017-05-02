@@ -1,6 +1,6 @@
 ﻿@model SocialMusic.Models.WallMessage[]
 
-<h2>Wall</h2>
+<h2 id="wall">Wall</h2>
 
 
 <ul>
@@ -10,3 +10,29 @@
     }
 </ul>
 
+<div class="wallBox">
+    @using (Html.BeginForm())
+    {
+        <p class="siteLogo">Social<strong>Music</strong></p>
+
+        <br />
+        <button id="subButton">Post</button>
+        <br />
+    }
+
+</div>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+<script>
+    var URL = '@Url.Content("~")';
+    function AddMessage(message) {
+        console.log('POSTING...');
+        $.ajax({
+            type: 'POST',
+            url: URL + 'wallmessages/PostToWall',
+            data: {message: message}
+        })
+    }
+    $('#subButton').click(function () {
+        AddMessage('TEST MESSAGE')
+    })
+</script>
