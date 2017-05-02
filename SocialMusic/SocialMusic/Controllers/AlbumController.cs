@@ -14,40 +14,52 @@ namespace SocialMusic.Controllers
         // GET: Album
         public ActionResult Index()
         {
-            var username = "xzorcious";
+            string username = "ludderaket";
+            int test = 1;
+            int listSize = 5;
+            ArtistAlbumViewModel AAVM = new ArtistAlbumViewModel();
+            
+            AAVM.Albums = GetAlbum(username, listSize);           
+            AAVM.Artists = GetArtist(username, listSize);
+                     
+            return View(AAVM);        
+        }
+
+        public List<Album> GetAlbum(string username, int listSize)
+        {
             var albumUrl = "http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=" + username + "&api_key=7d063e651df846f5a4c10e618858189e&format=json";
-            var artistUrl = "http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=" + username + "&api_key=7d063e651df846f5a4c10e618858189e&format=json";
-            int test = 0;
-            Album[] albums = new Album[5];
-            Artist[] artists = new Artist[5];
-
+            List<Album> albums = new List<Album>();
             using (var webClient = new System.Net.WebClient())
-            {               
-                if (test == 1)
+            {
+                var json = webClient.DownloadString(albumUrl);
+                var lol = "hej";
+                dynamic root = JObject.Parse(json);
+                for (int i = 0; i < listSize; i++)
                 {
-                    var json = webClient.DownloadString(albumUrl);
-                    dynamic root = JObject.Parse(json);
-                    for (int i = 0; i < albums.Length; i++)
-                    {
-                        albums[i] = new Album();
-                        albums[i].Name = root.topalbums.album[i].name;
-                        albums[i].Artist = root.topalbums.album[i].artist.name;                       
-                    }
+                    albums.Add(new Album());
+                    albums[i].Name = root.topalbums.album[i].name;
+                    albums[i].Artist = root.topalbums.album[i].artist.name;
                 }
-                else
-                {
-                    var json = webClient.DownloadString(artistUrl);
-                    dynamic root = JObject.Parse(json);
-                    for (int i = 0; i < artists.Length; i++)
-                    {
-                        artists[i] = new Artist();
-                        artists[i].Name = root.topartists.artist[i].name;
-                    }
-                }
-                         
-            }           
+                return albums;
+            }
+        }
 
-            return View(artists);
+        public List<Artist> GetArtist(string username, int listSize)
+        {
+            var artistUrl = "http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=" + username + "&api_key=7d063e651df846f5a4c10e618858189e&format=json";
+            List<Artist> artists = new List<Artist>();
+            using (var webClient = new System.Net.WebClient())
+            {
+                var json = webClient.DownloadString(artistUrl);
+                dynamic root = JObject.Parse(json);
+                for (int i = 0; i < listSize; i++)
+                {
+                    artists.Add(new Artist());
+                    artists[i].Name = root.topartists.artist[i].name;
+
+                }
+                return artists;
+            }
         }
     }
 }
