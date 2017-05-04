@@ -24,7 +24,7 @@ namespace SocialMusic.Attributes
                 }
                 filterContext.Result = new ViewResult()
                 {
-                    ViewName = "NotAuthenticated"
+                    ViewName = "../Home/Index"
                 };
             }
         }
