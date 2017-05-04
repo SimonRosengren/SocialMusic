@@ -15,14 +15,14 @@ namespace SocialMusic.Handlers
         const string URL = "http://ws.audioscrobbler.com/2.0/?method={0}&user={1}&api_key={2}&format=json";
         public LastFmApiHandler(string username)
         {
-            GetAlbum(username, URL);
-            GetArtist(username, URL);
+            GetAlbum(username);
+            GetArtist(username);
         }
 
         public List<Album> Albums { get; set; }
         public List<Artist> Artists { get; set; }
 
-        private void GetAlbum(string username, string url)
+        private void GetAlbum(string username)
         {
             List<Album> albums = new List<Album>();
             dynamic root = DownloadData(String.Format(URL, "user.gettopalbums", username, API_KEY));
@@ -35,7 +35,7 @@ namespace SocialMusic.Handlers
             Albums = albums;
         }
 
-        private void GetArtist(string username, string url)
+        private void GetArtist(string username)
         {
             List<Artist> artists = new List<Artist>();
             dynamic root = DownloadData(String.Format(URL, "user.gettopartists", username, API_KEY));
