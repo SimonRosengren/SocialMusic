@@ -23,6 +23,7 @@ namespace SocialMusic.Controllers
             {
                 return RedirectToAction("Index", "Profile");
             }
+
             return RedirectToAction("Index");
         }
         [HttpPost]
