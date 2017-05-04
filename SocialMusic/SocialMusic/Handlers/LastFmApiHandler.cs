@@ -25,36 +25,37 @@ namespace SocialMusic.Handlers
         {
             var albumUrl = DOMAIN + "&user=" + username + "&api_key=" + API_KEY + "&format=json";
             List<Album> albums = new List<Album>();
-            using (var webClient = new System.Net.WebClient())
+            dynamic root = DownloadData(albumUrl);
+            for (int i = 0; i < LIST_SIZE; i++)
             {
-                var json = webClient.DownloadString(albumUrl);
-                dynamic root = JObject.Parse(json);
-                for (int i = 0; i < LIST_SIZE; i++)
-                {
-                    albums.Add(new Album());
-                    albums[i].Name = root.topalbums.album[i].name;
-                    albums[i].Artist = root.topalbums.album[i].artist.name;
-                }
-                Albums = albums;
+                albums.Add(new Album());
+                albums[i].Name = root.topalbums.album[i].name;
+                albums[i].Artist = root.topalbums.album[i].artist.name;
             }
+            Albums = albums;
         }
 
         private void GetArtist(string username)
         {
             var artistUrl = "http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=" + username + "&api_key=7d063e651df846f5a4c10e618858189e&format=json";
             List<Artist> artists = new List<Artist>();
-            using (var webClient = new System.Net.WebClient())
+            dynamic root = DownloadData(artistUrl);
+            for (int i = 0; i < LIST_SIZE; i++)
             {
-                var json = webClient.DownloadString(artistUrl);
-                dynamic root = JObject.Parse(json);
-                for (int i = 0; i < LIST_SIZE; i++)
-                {
-                    artists.Add(new Artist());
-                    artists[i].Name = root.topartists.artist[i].name;
-
-                }
-                Artists = artists;
+                artists.Add(new Artist());
+                artists[i].Name = root.topartists.artist[i].name;
             }
+            Artists = artists;
+        }
+
+        private dynamic DownloadData(string url)
+        {
+            using (var WebClient = new System.Net.WebClient())
+            {
+                var json = WebClient.DownloadString(url);
+                dynamic root = JObject.Parse(json);
+                return root;
+            }          
         }
     }
 }
