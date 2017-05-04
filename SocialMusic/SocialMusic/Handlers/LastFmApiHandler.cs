@@ -10,6 +10,8 @@ namespace SocialMusic.Handlers
     public class LastFmApiHandler
     {
         const int LIST_SIZE = 5;
+        const string DOMAIN = "http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums";
+        const string API_KEY = "7d063e651df846f5a4c10e618858189e";
         public LastFmApiHandler(string username)
         {
             GetAlbum(username);
@@ -21,7 +23,7 @@ namespace SocialMusic.Handlers
 
         private void GetAlbum(string username)
         {
-            var albumUrl = "http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=" + username + "&api_key=7d063e651df846f5a4c10e618858189e&format=json";
+            var albumUrl = DOMAIN + "&user=" + username + "&api_key=" + API_KEY + "&format=json";
             List<Album> albums = new List<Album>();
             using (var webClient = new System.Net.WebClient())
             {
