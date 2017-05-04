@@ -1,47 +1,44 @@
 ﻿@model SocialMusic.Models.WallMessage[]
 
-<!--wallBox är omöjlig att nå från CSS. Gör mig svinarg-->
 <div class="wallBox"> 
     <p class="siteLogo">W<strong>all</strong></p>
-    <ul>
-        @foreach (var message in Model)
-        {
-            <li>@message.Message</li>
-        }
-    </ul>
+    <div class="scrollDiv">
+        <ul class="wallList">
+            @for (int i = Model.Length - 1; i > 0; i--)
+            {
+                <li>@Model[i].Message</li>
+            }
+        </ul>
+    </div>
 
-
-    @using (Html.BeginForm())
-    {
-        //Lite av en brute force-lösning. Men jag vet
-        //inte hur jag annars ska kunna nå
-        //innehållet i formen från ajax-postningen
-        //För jag vill ju egentligen inte edita s[i].Message
-        //utan lägga till en helt ny till databasen
-        if (Model.Length > 0)
-        {
-            @Html.EditorFor(s => s[Model.Length - 1].Message);
-        }
+    <form id="message">
+        <input type="text" id="input" />
         <br />
         <button type="submit" class="logInButton">Post</button>
-        <br />
-    }
+    </form>
 
 </div>
 
-<!--Hur uppdateras uppdateringen av texten från databasen?
-    Jag postar ju endast mot en action som inte returnar ngt
-    för att kunna göra saker utan att lämna viewn. Men hur
-    vet den att den ska uppdatera?-->
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
 <script>
-    var URL = '@Url.Content("~")';
-
-    $('form').submit(function () {
+    $('#message').submit(function () {
         $.ajax({
             type: 'POST',
-            url: URL + 'wallmessages/PostToWall',
-            data: { message: $(this).serialize() }
+            url: '/wallmessages/PostToWall',
+            data: { message: $('#input').val() }
         })
     })
+
+
+    //$('form').submit(function (e) {
+    //    e.preventDefault();
+    //    //event.preventDefault(); //So that we don't refresh every time
+        
+    //    console.log($('form').serializeArray());
+    //    $.ajax({
+    //        type: 'POST',
+    //        url: URL + 'wallmessages/PostToWall',
+    //        data: { message: $(this).serialize() }
+    //    })
+    //})
 </script>
