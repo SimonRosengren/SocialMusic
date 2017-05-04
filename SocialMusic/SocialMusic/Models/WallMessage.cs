@@ -13,8 +13,4 @@ namespace SocialMusic.Models
         public string Message { get; set; }
     }
 
-    public class WallMessageDbContext : DbContext
-    {
-        public DbSet<WallMessage> WallMessages { get; set; }
-    }
 }

@@ -1,4 +1,5 @@
-﻿using SocialMusic.Handlers;
+﻿using SocialMusic.DBContexts;
+using SocialMusic.Handlers;
 using SocialMusic.Models;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,6 @@ namespace SocialMusic.Controllers
             {
                 return RedirectToAction("Index", "Profile");
             }
-
             return RedirectToAction("Index");
         }
         [HttpPost]
@@ -42,7 +42,7 @@ namespace SocialMusic.Controllers
         public ActionResult Register(User user)
         {
             var authentificationHandler = new AuthentificationHandler(Session);
-            using (var db = new UserDbContext())
+            using (var db = new SocialMusicDbContext())
             {
                 user.Created = DateTime.Now;
 

@@ -1,8 +1,7 @@
-﻿using SocialMusic.Models;
+﻿using SocialMusic.DBContexts;
+using SocialMusic.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SocialMusic.Controllers
@@ -12,7 +11,7 @@ namespace SocialMusic.Controllers
         public ActionResult Index()
         {
             WallMessage[] messages;
-            using (var db = new WallMessageDbContext())
+            using (var db = new SocialMusicDbContext())
             {
                 messages = db.WallMessages.Take(100).ToArray();
             }
@@ -32,7 +31,7 @@ namespace SocialMusic.Controllers
         {
             
             WallMessage m = new WallMessage();
-            using (var db = new WallMessageDbContext())
+            using (var db = new SocialMusicDbContext())
             {
                 m.Created = DateTime.Now;
                 m.Message = message;

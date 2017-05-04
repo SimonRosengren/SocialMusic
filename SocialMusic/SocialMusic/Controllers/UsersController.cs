@@ -1,4 +1,5 @@
-﻿using SocialMusic.Models;
+﻿using SocialMusic.DBContexts;
+using SocialMusic.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace SocialMusic.Controllers
         public ActionResult Index()
         {
             User[] users;
-            using (var db = new UserDbContext())
+            using (var db = new SocialMusicDbContext())
             {
                 users = db.Users.Take(100).ToArray();
             }

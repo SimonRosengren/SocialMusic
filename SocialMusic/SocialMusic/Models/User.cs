@@ -15,10 +15,5 @@ namespace SocialMusic.Models
         public DateTime Created { get; set; }
     }
 
-
-    public class UserDbContext : DbContext
-    {
-        public DbSet<User> Users { get; set; }
-    }
     
 }

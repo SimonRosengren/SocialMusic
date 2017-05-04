@@ -18,7 +18,10 @@
         //innehållet i formen från ajax-postningen
         //För jag vill ju egentligen inte edita s[i].Message
         //utan lägga till en helt ny till databasen
-        @Html.EditorFor(s => s[Model.Length - 1].Message);  
+        if (Model.Length > 0)
+        {
+            @Html.EditorFor(s => s[Model.Length - 1].Message);
+        }
         <br />
         <button type="submit" class="logInButton">Post</button>
         <br />

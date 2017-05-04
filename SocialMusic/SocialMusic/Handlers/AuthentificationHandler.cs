@@ -26,7 +26,7 @@ namespace SocialMusic.Handlers
         public bool LogIn(User user)
         {
             
-            using (var db = new UserDbContext())
+            using (var db = new DBContexts.SocialMusicDbContext())
             {
                 User dbUser = db.Users.FirstOrDefault(s => s.Username == user.Username);
                 if (dbUser == null)

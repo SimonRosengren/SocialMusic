@@ -165,20 +165,12 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\WallMessagesController.cs" />
+    <Compile Include="Models\SocialMusicDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Handlers\AuthentificationHandler.cs" />
     <Compile Include="Handlers\LastFmApiHandler.cs" />
-    <Compile Include="Migrations\201704211139437_InitialCreate.cs" />
-    <Compile Include="Migrations\201704211139437_InitialCreate.Designer.cs">
-      <DependentUpon>201704211139437_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704250855415_Initial.cs" />
-    <Compile Include="Migrations\201704250855415_Initial.Designer.cs">
-      <DependentUpon>201704250855415_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\ArtistAlbumViewModel.cs" />
@@ -214,14 +206,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704211139437_InitialCreate.resx">
-      <DependentUpon>201704211139437_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704250855415_Initial.resx">
-      <DependentUpon>201704250855415_Initial.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
