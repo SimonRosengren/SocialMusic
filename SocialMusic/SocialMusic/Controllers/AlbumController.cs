@@ -32,7 +32,6 @@ namespace SocialMusic.Controllers
             using (var webClient = new System.Net.WebClient())
             {
                 var json = webClient.DownloadString(albumUrl);
-                var lol = "hej";
                 dynamic root = JObject.Parse(json);
                 for (int i = 0; i < listSize; i++)
                 {
