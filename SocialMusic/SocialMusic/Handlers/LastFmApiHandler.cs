@@ -10,22 +10,22 @@ namespace SocialMusic.Handlers
     public class LastFmApiHandler
     {
         const int LIST_SIZE = 5;
-        const string DOMAIN = "http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums";
+        //const string DOMAIN = ";
         const string API_KEY = "7d063e651df846f5a4c10e618858189e";
+        const string URL = "http://ws.audioscrobbler.com/2.0/?method={0}&user={1}&api_key={2}&format=json";
         public LastFmApiHandler(string username)
         {
-            GetAlbum(username);
-            GetArtist(username);
+            GetAlbum(username, URL);
+            GetArtist(username, URL);
         }
 
         public List<Album> Albums { get; set; }
         public List<Artist> Artists { get; set; }
 
-        private void GetAlbum(string username)
+        private void GetAlbum(string username, string url)
         {
-            var albumUrl = DOMAIN + "&user=" + username + "&api_key=" + API_KEY + "&format=json";
             List<Album> albums = new List<Album>();
-            dynamic root = DownloadData(albumUrl);
+            dynamic root = DownloadData(String.Format(URL, "user.gettopalbums", username, API_KEY));
             for (int i = 0; i < LIST_SIZE; i++)
             {
                 albums.Add(new Album());
@@ -35,11 +35,10 @@ namespace SocialMusic.Handlers
             Albums = albums;
         }
 
-        private void GetArtist(string username)
+        private void GetArtist(string username, string url)
         {
-            var artistUrl = "http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=" + username + "&api_key=7d063e651df846f5a4c10e618858189e&format=json";
             List<Artist> artists = new List<Artist>();
-            dynamic root = DownloadData(artistUrl);
+            dynamic root = DownloadData(String.Format(URL, "user.gettopartists", username, API_KEY));
             for (int i = 0; i < LIST_SIZE; i++)
             {
                 artists.Add(new Artist());
