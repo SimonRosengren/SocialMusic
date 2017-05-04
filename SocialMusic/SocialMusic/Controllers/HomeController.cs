@@ -46,7 +46,7 @@ namespace SocialMusic.Controllers
             {
                 user.Created = DateTime.Now;
 
-
+                
                 user.Password = authentificationHandler.HashPassword(user.Password);
                 
 

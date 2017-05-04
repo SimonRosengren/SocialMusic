@@ -7,7 +7,9 @@
         <br />
         @Html.EditorFor(s => s.Username, new { htmlAttributes = new { placeholder = "Username" } });
         <br />
-        @Html.EditorFor(s => s.Password, new { htmlAttributes = new { placeholder = "Password" } });
+        @Html.EditorFor(s => s.LastFmUsername, new { htmlAttributes = new { placeholder = "LasFM Name" } });
+        <br />
+        @Html.PasswordFor(s => s.Password, new { @class = "form-control", placeholder = "Password" });
         <br />
         <button type="submit" class="logInButton">Register</button>
     }
