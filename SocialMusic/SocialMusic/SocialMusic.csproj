@@ -197,6 +197,7 @@
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Profile\NotAuthenticated.cshtml" />
     <Content Include="Views\WallMessages\Index.cshtml" />
+    <Content Include="Views\Album\TopAlbumsAndArtists.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -206,6 +207,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Album\Partial\" />
+    <Folder Include="Views\Profile\Partial\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

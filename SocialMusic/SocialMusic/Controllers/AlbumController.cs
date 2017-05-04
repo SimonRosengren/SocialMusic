@@ -13,7 +13,8 @@ namespace SocialMusic.Controllers
     public class AlbumController : Controller
     {
         // GET: Album
-        public ActionResult Index()
+        [ChildActionOnly]
+        public ActionResult TopAlbumsAndArtists()
         {
             string username = "ludderaket";
             ArtistAlbumViewModel AAVM = new ArtistAlbumViewModel();
@@ -22,7 +23,7 @@ namespace SocialMusic.Controllers
             AAVM.Albums = lastFmApiHandler.Albums;
             AAVM.Artists = lastFmApiHandler.Artists;
                      
-            return View(AAVM);        
+            return PartialView("TopAlbumsAndArtists", AAVM);        
         }
     }
 }

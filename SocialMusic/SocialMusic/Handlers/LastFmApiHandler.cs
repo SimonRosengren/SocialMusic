@@ -10,7 +10,6 @@ namespace SocialMusic.Handlers
     public class LastFmApiHandler
     {
         const int LIST_SIZE = 5;
-        //const string DOMAIN = ";
         const string API_KEY = "7d063e651df846f5a4c10e618858189e";
         const string URL = "http://ws.audioscrobbler.com/2.0/?method={0}&user={1}&api_key={2}&format=json";
         public LastFmApiHandler(string username)
