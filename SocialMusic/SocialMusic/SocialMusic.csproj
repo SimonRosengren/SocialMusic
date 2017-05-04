@@ -169,6 +169,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Handlers\AuthentificationHandler.cs" />
+    <Compile Include="Handlers\LastFmApiHandler.cs" />
     <Compile Include="Migrations\201704211139437_InitialCreate.cs" />
     <Compile Include="Migrations\201704211139437_InitialCreate.Designer.cs">
       <DependentUpon>201704211139437_InitialCreate.cs</DependentUpon>
