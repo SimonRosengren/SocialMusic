@@ -12,8 +12,16 @@ namespace SocialMusic.Controllers
         [Authenticate(View = "NotAuthenticated")]
         public ActionResult Index()
         {
-
             return View();
+        }
+        /// <summary>
+        /// Returns the public profile of matching profile name
+        /// </summary>
+        public ActionResult PublicProfile(string profile)
+        {
+            string a = profile;
+
+            return View(profile);
         }
     }
 }
