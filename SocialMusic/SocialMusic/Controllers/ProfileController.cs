@@ -17,7 +17,7 @@ namespace SocialMusic.Controllers
         /// <summary>
         /// Returns the public profile of matching profile name
         /// </summary>
-        public ActionResult PublicProfile(string name)
+        public ActionResult PublicProfile(object name)
         {
             return View(name);
         }
