@@ -1,0 +1,5 @@
+﻿Socialmusic = {
+    albumSearch: function () {
+
+    }
+}
