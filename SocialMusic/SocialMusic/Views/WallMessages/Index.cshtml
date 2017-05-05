@@ -3,7 +3,10 @@
 <div class="wallBox"> 
     <p class="siteLogo">W<strong>all</strong></p>
     <div class="scrollDiv">
-        <ul class="wallList">
+        <ul class="wallList" id="newMessages">
+
+        </ul>
+        <ul class="wallList" id="wallList">
             @for (int i = Model.Length - 1; i > 0; i--)
             {
                 <li>@Model[i].Message</li>
@@ -21,24 +24,14 @@
 
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
 <script>
-    $('#message').submit(function () {
+    $('#message').submit(function (e) {
+        e.preventDefault()
         $.ajax({
             type: 'POST',
             url: '/wallmessages/PostToWall',
             data: { message: $('#input').val() }
         })
+        $('#newMessages').append('<li>' + $('#input').val() + '</li>')
+        $('#input').val('')
     })
-
-
-    //$('form').submit(function (e) {
-    //    e.preventDefault();
-    //    //event.preventDefault(); //So that we don't refresh every time
-        
-    //    console.log($('form').serializeArray());
-    //    $.ajax({
-    //        type: 'POST',
-    //        url: URL + 'wallmessages/PostToWall',
-    //        data: { message: $(this).serialize() }
-    //    })
-    //})
 </script>
