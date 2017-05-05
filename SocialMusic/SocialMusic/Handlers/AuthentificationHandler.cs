@@ -68,6 +68,10 @@ namespace SocialMusic.Handlers
         {
             return this.Session[AUTH_KEY] != null;
         }
+        public User GetUser()
+        {
+            return this.Session[AUTH_KEY] as User;
+        }
         public string HashPassword(string input)
         {
             
