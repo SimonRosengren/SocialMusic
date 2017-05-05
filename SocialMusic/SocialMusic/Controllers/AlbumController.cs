@@ -18,10 +18,10 @@ namespace SocialMusic.Controllers
         {
             string username = "ludderaket";
             ArtistAlbumViewModel AAVM = new ArtistAlbumViewModel();
-            LastFmApiHandler lastFmApiHandler = new LastFmApiHandler(username);
+            LastFmApiHandler lastFmApiHandler = new LastFmApiHandler();
 
-            AAVM.Albums = lastFmApiHandler.Albums;
-            AAVM.Artists = lastFmApiHandler.Artists;
+            AAVM.Albums = lastFmApiHandler.GetAlbum(username);
+            AAVM.Artists = lastFmApiHandler.GetArtist(username);
                      
             return PartialView("TopAlbumsAndArtists", AAVM);        
         }
