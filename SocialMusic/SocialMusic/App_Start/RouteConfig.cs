@@ -13,17 +13,17 @@ namespace SocialMusic
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(
+                name: "Profile",
+                url: "profile/{name}",
+                defaults: new { controller = "Profile", action = "PublicProfile", name = UrlParameter.Optional }
+            );
+
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
-                name: "Profile",
-                url: "{profile}/{name}",
-                defaults: new { controller = "Profile", action = "PublicProfile", name = UrlParameter.Optional }
             );
 
 
