@@ -202,6 +202,7 @@
     <Content Include="Views\WallMessages\Index.cshtml" />
     <Content Include="Views\Album\TopAlbumsAndArtists.cshtml" />
     <Content Include="Views\PublicProfile\Index.cshtml" />
+    <Content Include="Views\PublicProfile\TopAlbumsAndArtists.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
