@@ -8,7 +8,8 @@ namespace SocialMusic.Controllers
 {
     public class WallMessagesController : Controller
     {
-        public ActionResult Index()
+        [ChildActionOnly]
+        public ActionResult Messages()
         {
             WallMessage[] messages;
             using (var db = new SocialMusicDbContext())
@@ -16,7 +17,7 @@ namespace SocialMusic.Controllers
                 messages = db.WallMessages.Take(100).ToArray();
             }
 
-            return View(messages);
+            return PartialView("_Messages", messages);
         }
 
 

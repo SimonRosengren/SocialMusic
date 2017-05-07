@@ -1,20 +1,14 @@
 ﻿<!DOCTYPE html>
 
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
     <div>
         ﻿
         <h2>Welcome to your profile</h2>
-@using (Html.BeginForm("Logout", "Home"))
-{
+    @using (Html.BeginForm("Logout", "Home"))
+    {
         <button type="submit" class="logOutButton">Logout</button>
-}
-        <h3>@Html.ActionLink("Users", "Index", "Users") </h3>
-    </div>
+    }
+    <h3>@Html.ActionLink("Users", "Index", "Users") </h3>
+</div>
 @{Html.RenderAction("TopAlbumsAndArtists", "Album");}
-</body>
-</html>
+@{ Html.RenderAction("Messages", "WallMessages");}
