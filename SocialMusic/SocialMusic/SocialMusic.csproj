@@ -198,7 +198,6 @@
     <Content Include="Views\Album\Index.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
-    <Content Include="Views\Profile\NotAuthenticated.cshtml" />
     <Content Include="Views\WallMessages\Index.cshtml" />
     <Content Include="Views\Album\TopAlbumsAndArtists.cshtml" />
     <Content Include="Views\PublicProfile\Index.cshtml" />

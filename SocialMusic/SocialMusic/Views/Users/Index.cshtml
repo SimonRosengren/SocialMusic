@@ -5,7 +5,7 @@
 <ul>
     @foreach (var user in Model)
     {
-        <li>@user.Username</li>
-        
+        //<li>@user.Username</li>        
+        <li>@Html.ActionLink(user.Username, "Index", "PublicProfile/" + user.Username) </li>
     }
 </ul>

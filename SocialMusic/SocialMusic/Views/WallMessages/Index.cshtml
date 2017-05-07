@@ -3,9 +3,9 @@
 <div class="wallBox"> 
     <p class="siteLogo">W<strong>all</strong></p>
     <div class="scrollDiv">
-        <ul class="wallList" id="newMessages">
 
-        </ul>
+        <ul class="wallList" id="newMessages"></ul>
+
         <ul class="wallList" id="wallList">
             @for (int i = Model.Length - 1; i > 0; i--)
             {
@@ -19,7 +19,6 @@
         <br />
         <button type="submit" class="logInButton">Post</button>
     </form>
-
 </div>
 
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
