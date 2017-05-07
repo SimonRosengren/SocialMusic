@@ -1,8 +1,7 @@
-﻿@model string
+﻿@model SocialMusic.Models.User
 
-<h1 class="profileHeader">This is @Model's profile</h1>
+<h1 class="profileHeader">This is @Model.Username's profile</h1>
 <br />
-<h3>Post something on @Model's wall!</h3>
-
-
-
+<h3>Post something on @Model.Username's wall!</h3>
+<br/>
+<h3>@Model.Username's name on last FM is @Model.LastFmUsername</h3>

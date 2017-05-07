@@ -1,6 +1,6 @@
 ﻿using SocialMusic.Attributes;
-using System;
-using System.Collections.Generic;
+using SocialMusic.DBContexts;
+using SocialMusic.Models;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,7 +19,16 @@ namespace SocialMusic.Controllers
         /// </summary>
         public ActionResult PublicProfile(object name)
         {
-            return View(name);
+            User user = new User();
+            using (var db = new SocialMusicDbContext())
+            {
+                user = db.Users.FirstOrDefault(s => s.Username == (string)name);
+            }
+            if(user == null)
+            {
+                return RedirectToAction("Index", "Users");
+            }
+            return View(user);
         }
     }
 }
