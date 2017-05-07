@@ -165,6 +165,7 @@
     <Compile Include="Controllers\AlbumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\PublicProfileController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\WallMessagesController.cs" />
     <Compile Include="Models\SocialMusicDbContext.cs" />
@@ -200,7 +201,7 @@
     <Content Include="Views\Profile\NotAuthenticated.cshtml" />
     <Content Include="Views\WallMessages\Index.cshtml" />
     <Content Include="Views\Album\TopAlbumsAndArtists.cshtml" />
-    <Content Include="Views\Profile\PublicProfile.cshtml" />
+    <Content Include="Views\PublicProfile\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

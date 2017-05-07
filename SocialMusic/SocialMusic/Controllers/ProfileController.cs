@@ -14,21 +14,5 @@ namespace SocialMusic.Controllers
         {
             return View();
         }
-        /// <summary>
-        /// Returns the public profile of matching profile name
-        /// </summary>
-        public ActionResult PublicProfile(object name)
-        {
-            User user = new User();
-            using (var db = new SocialMusicDbContext())
-            {
-                user = db.Users.FirstOrDefault(s => s.Username == (string)name);
-            }
-            if(user == null)
-            {
-                return RedirectToAction("Index", "Users");
-            }
-            return View(user);
-        }
     }
 }

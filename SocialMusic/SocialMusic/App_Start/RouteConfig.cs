@@ -15,8 +15,8 @@ namespace SocialMusic
 
             routes.MapRoute(
                 name: "Profile",
-                url: "profile/{name}",
-                defaults: new { controller = "Profile", action = "PublicProfile", name = "name" }
+                url: "publicprofile/{name}",
+                defaults: new { controller = "PublicProfile", action = "Index", name = "name" }
             );
 
             routes.MapRoute(
