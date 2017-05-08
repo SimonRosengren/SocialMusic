@@ -4,7 +4,7 @@
 
 <div>
 <h2>All Albums</h2>
-<ul id="album" />
+
   </div>
 <div>
     
@@ -20,14 +20,15 @@
             <li>@artist.Name</li>
         }
     </ul>      
-    <input type="text" id="albumId" size="5" />
+    <input type="text" id="albumName" size="5" />
     <input type="button" value="Search" onclick="find();" />
     <p id="album" />
 </div>
+<ul id="album" />
 
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
-<!--<script>
-    var uri = 'api/albumapi';
+<script>
+    var uri = '/api/albumapi';
 
     $(document).ready(function () {
       // Send an AJAX request
@@ -55,4 +56,4 @@
             $('#album').text('Error: ' + err);
           });
     }
-</script>-->
+</script>
