@@ -6,4 +6,5 @@
 }
 <h3>@Html.ActionLink("Users", "Index", "Users") </h3>
 @{Html.RenderAction("TopAlbumsAndArtists", "Album");}
+@{Html.RenderPartial("_SearchAlbum"); }
 @{ Html.RenderAction("Messages", "WallMessages");}
