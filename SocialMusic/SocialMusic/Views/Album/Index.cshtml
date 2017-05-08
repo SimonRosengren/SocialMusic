@@ -50,10 +50,15 @@
     }
 
     function find() {
+        $('#album').empty();
       var name = $('#albumName').val();
       $.getJSON('http://ws.audioscrobbler.com/2.0/?method=album.search&album=' + name + '&api_key=' + apiKey + '&format=json')
           .done(function (data) {
-            $('#album').text(formatItem(data));
+              var number = 0
+              while (number < 5) {
+                  $('<li>', { text: data.results.albummatches.album[number].name + ' - ' + data.results.albummatches.album[number].artist }).appendTo($('#album'));
+                  number++;
+              }            
           })
           .fail(function (jqXHR, textStatus, err) {
             $('#album').text('Error: ' + err);
