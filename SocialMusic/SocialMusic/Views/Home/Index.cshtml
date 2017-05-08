@@ -1,18 +1,42 @@
 ﻿@model SocialMusic.Models.User
 
 <div class="logInBox">
-    @using (Html.BeginForm("Login", "Home"))
-    {
-        <p class="siteLogo">Social<strong>Music</strong></p>
-        <br/>
-        @Html.EditorFor(s => s.Username, new { htmlAttributes = new { placeholder = "Username" } });
-        <br/>
-        @Html.PasswordFor(s => s.Password, new { @class = "form-control", placeholder = "Password" });
-        <br/>
-        <button type="submit" class="logInButton">Login</button>
-        <br/>
-        <h3>Not a member? @Html.ActionLink("Register", "Register") </h3>
-        <h3>@Html.ActionLink("Users", "Index", "Users" ) </h3>
-    }
+
+    <p class="siteLogo">Social<strong>Music</strong></p>
+    <br />
+    <form id="message">
+        <input type="text" id="usernameInput" />
+        <br />
+        <input type="password" id="passwordInput" />
+        <br />
+        <button type="submit" class="logInButton">Post</button>
+    </form>
+    <h1 id="errorMessage"></h1>
+
 </div>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+<script>
+    
+    $('#message').submit(function (e) {
+        /*Prevents the page to reaload like it normaly should*/
+        e.preventDefault()
+        /*Do the post through Ajax*/
+        $.ajax({
+            type: 'POST',
+            url: '/Home/LogIn',
+            data: {
+                username: $('#usernameInput').val(),
+                password: $('#passwordInput').val()
+            },
+            success: function (data){
+                if (!data.success) {
+                    $('#errorMessage').text("Wrong Username or Password")
+                }
+            }
+        })
+        /*Sets the text input to empty*/
+        $('#passwordInput').val('')
+    })
+</script>
 
