@@ -155,6 +155,7 @@
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="scripts\SocialMusic\albumsearch.js" />
     <Content Include="scripts\SocialMusic\main.js" />
+    <Content Include="scripts\SocialMusic\wallmessage.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
