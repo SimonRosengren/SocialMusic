@@ -29,8 +29,10 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
 <script>
     var uri = '/api/albumapi';
+    var url = 'http://ws.audioscrobbler.com/2.0/?method=album.search&{1}={2}&api_key={3}&format=json'
+    var apiKey = '7d063e651df846f5a4c10e618858189e'
 
-    $(document).ready(function () {
+    /*$(document).ready(function () {
       // Send an AJAX request
       $.getJSON(uri)
           .done(function (data) {
@@ -40,15 +42,16 @@
               $('<li>', { text: formatItem(item) }).appendTo($('#album'));
             });
           });
-    });
+    });*/
 
     function formatItem(item) {
-      return item.Name + ' - ' + item.Artist;
+        console.log(item)
+        return item.results.albummatches.album[0].name + ' - ' + item.results.albummatches.album[0].artist;
     }
 
     function find() {
-      var id = $('#albumId').val();
-      $.getJSON(uri + '/' + id)
+      var name = $('#albumName').val();
+      $.getJSON('http://ws.audioscrobbler.com/2.0/?method=album.search&album=' + name + '&api_key=' + apiKey + '&format=json')
           .done(function (data) {
             $('#album').text(formatItem(data));
           })
