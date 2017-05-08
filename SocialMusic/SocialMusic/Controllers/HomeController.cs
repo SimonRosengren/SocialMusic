@@ -16,15 +16,19 @@ namespace SocialMusic.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult LogIn(User user)
+        public ActionResult LogIn(string username, string password)
         {
             var authentificationHandler = new AuthentificationHandler(Session);
 
-            if (authentificationHandler.LogIn(user))
+            User tempUser = new User();
+            tempUser.Username = username;
+            tempUser.Password = password;
+
+            if (authentificationHandler.LogIn(tempUser))
             {
-                return RedirectToAction("Index", "Profile");
+                return JavaScript("window.location = '/Profile/Index'");
             }
-            return RedirectToAction("Index");
+            return this.Json(new { success = false, message = "Log in failed!" });
         }
         [HttpPost]
         public ActionResult LogOut(User user)
