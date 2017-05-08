@@ -9,7 +9,7 @@
         <br />
         <input type="password" id="passwordInput" />
         <br />
-        <button type="submit" class="logInButton">Post</button>
+        <button type="submit" class="logInButton">Login</button>
     </form>
     <h1 id="errorMessage"></h1>
     <h3>Not a member? @Html.ActionLink("Register", "Register") </h3>
@@ -33,7 +33,7 @@
                 password: $('#passwordInput').val()
             },
             success: function (data){
-                if (!data.success) {
+                if (!data.success && data.message == "loginerror") {
                     $('#errorMessage').text("Wrong Username or Password")
                 }
             }

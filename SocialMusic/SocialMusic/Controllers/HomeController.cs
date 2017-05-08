@@ -28,7 +28,7 @@ namespace SocialMusic.Controllers
             {
                 return JavaScript("window.location = '/Profile/Index'");
             }
-            return this.Json(new { success = false, message = "Log in failed!" });
+            return this.Json(new { success = false, message = "loginerror" });
         }
         [HttpPost]
         public ActionResult LogOut(User user)
