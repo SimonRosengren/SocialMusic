@@ -12,24 +12,10 @@
     <form id="message">
         <input type="text" id="input" />
         <br />
-        <button type="submit" class="logInButton">Post</button>
+        <button onclick="Socialmusic.postWallmessage()" class="logInButton">Post</button>
     </form>
 </div>
 
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
-<script>
-    $('#message').submit(function (e) {
-        /*Prevents the page to reaload like it normaly should*/
-        e.preventDefault()
-        /*Do the post through Ajax*/
-        $.ajax({
-            type: 'POST',
-            url: '/wallmessages/PostToWall',
-            data: { message: $('#input').val() }
-        })
-        /*Adds the new message to the html*/
-        $('#newMessages').append('<li>' + $('#input').val() + '</li>')
-        /*Sets the text input to empty*/
-        $('#input').val('')
-    })
-</script>
+<script src="~/scripts/SocialMusic/main.js"></script>
+<script src="~/scripts/SocialMusic/wallmessage.js"></script>
