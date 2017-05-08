@@ -19,7 +19,8 @@
         {
             <li>@artist.Name</li>
         }
-    </ul>      
+    </ul>     
+    <h3>Search Album</h3> 
     <input type="text" id="albumName" size="5" />
     <input type="button" value="Search" onclick="find();" />
     <p id="album" />
@@ -31,23 +32,6 @@
     var uri = '/api/albumapi';
     var url = 'http://ws.audioscrobbler.com/2.0/?method=album.search&{1}={2}&api_key={3}&format=json'
     var apiKey = '7d063e651df846f5a4c10e618858189e'
-
-    /*$(document).ready(function () {
-      // Send an AJAX request
-      $.getJSON(uri)
-          .done(function (data) {
-            // On success, 'data' contains a list of albums.
-            $.each(data, function (key, item) {
-              // Add a list item for the albums.
-              $('<li>', { text: formatItem(item) }).appendTo($('#album'));
-            });
-          });
-    });*/
-
-    function formatItem(item) {
-        console.log(item)
-        return item.results.albummatches.album[0].name + ' - ' + item.results.albummatches.album[0].artist;
-    }
 
     function find() {
         $('#album').empty();
