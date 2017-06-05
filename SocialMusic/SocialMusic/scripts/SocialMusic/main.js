@@ -1,11 +1,11 @@
-﻿var SocialMusic = {
-    init: function(){
-        $(document).ready(function () {
-            console.log("ready");
-        })
+﻿
+var SocialMusic = {
+    init: function () {
+        SocialMusic.WallMessage.init();
     }
 }
 
-$startup = function(){
+$(document).ready(function () {
     SocialMusic.init();
-}
+    console.log("ready");
+})
