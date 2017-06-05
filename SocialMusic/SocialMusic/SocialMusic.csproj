@@ -198,11 +198,10 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
-    <Content Include="Views\Album\TopAlbumsAndArtists.cshtml" />
+    <Content Include="Views\Partials\_TopAlbumsAndArtists.cshtml" />
     <Content Include="Views\PublicProfile\Index.cshtml" />
-    <Content Include="Views\PublicProfile\TopAlbumsAndArtists.cshtml" />
-    <Content Include="Views\WallMessages\_Messages.cshtml" />
-    <Content Include="Views\Profile\_SearchAlbum.cshtml" />
+    <Content Include="Views\Partials\_Messages.cshtml" />
+    <Content Include="Views\Partials\_SearchAlbum.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -214,6 +213,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Album\Partial\" />
     <Folder Include="Views\Profile\Partial\" />
+    <Folder Include="Views\WallMessages\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

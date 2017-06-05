@@ -17,7 +17,7 @@ namespace SocialMusic.Controllers
                 messages = db.WallMessages.Take(100).ToArray();
             }
 
-            return PartialView("_Messages", messages);
+            return PartialView("/Views/Partials/_Messages.cshtml", messages);
         }
 
 

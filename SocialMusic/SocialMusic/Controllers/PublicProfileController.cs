@@ -39,7 +39,7 @@ namespace SocialMusic.Controllers
             AAVM.Albums = lastFmApiHandler.GetAlbum(user.LastFmUsername);
             AAVM.Artists = lastFmApiHandler.GetArtist(user.LastFmUsername);
 
-            return PartialView("TopAlbumsAndArtists", AAVM);
+            return PartialView("/Views/Partials/_TopAlbumsAndArtists.cshtml", AAVM);
         }
 
     }
