@@ -1,3 +1,4 @@
+﻿SocialMusic.WallMessage = {
 
     postWallmessage: function (e) {
         $('#message').submit(function (e) {
@@ -16,5 +17,7 @@
         })
     },
 
+    init: function () {
+        SocialMusic.WallMessage.postWallmessage();
     }
 }
