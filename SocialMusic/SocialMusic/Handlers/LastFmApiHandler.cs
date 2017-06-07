@@ -2,8 +2,6 @@
 using SocialMusic.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace SocialMusic.Handlers
 {
@@ -12,6 +10,7 @@ namespace SocialMusic.Handlers
         const int LIST_SIZE = 5;
         const string API_KEY = "7d063e651df846f5a4c10e618858189e";
         const string URL = "http://ws.audioscrobbler.com/2.0/?method={0}&{1}={2}&api_key={3}&format=json";
+
         public LastFmApiHandler()
         {
 
@@ -27,6 +26,7 @@ namespace SocialMusic.Handlers
                 albums[i].Name = root.results.albummatches.album[i].name;
                 albums[i].Artist = root.results.albummatches.album[i].artist;
             }
+
             return albums;
         }
 
@@ -40,6 +40,7 @@ namespace SocialMusic.Handlers
                 albums[i].Name = root.topalbums.album[i].name;
                 albums[i].Artist = root.topalbums.album[i].artist.name;
             }
+
             return albums;
         }
 

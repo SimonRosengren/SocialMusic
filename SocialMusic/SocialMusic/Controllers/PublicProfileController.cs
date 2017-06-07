@@ -22,6 +22,7 @@ namespace SocialMusic.Controllers
             {
                 return RedirectToAction("Index", "Users");
             }
+
             return View(user);
         }
 
