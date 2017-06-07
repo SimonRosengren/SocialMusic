@@ -162,7 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Attributes\AuthenticateAttribute.cs" />
-    <Compile Include="Controllers\AlbumApiController.cs" />
+    <Compile Include="ApiControllers\AlbumApiController.cs" />
     <Compile Include="Controllers\AlbumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
