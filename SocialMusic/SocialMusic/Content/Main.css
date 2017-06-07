@@ -104,3 +104,17 @@ h3{
     position: relative;
     transform: translateY(100%);
 }
+
+/*NAV BAR*/
+.top-nav-list{
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    background-color: rgba(37, 73, 132, 0.6);
+}
+.top-nav-list li{
+    display: inline;
+    padding: 10px;
+    color: white;
+    border-right: 1px solid #bbb;
+}
