@@ -12,23 +12,6 @@
     <form id="message">
         <input type="text" id="input" />
         <br />
-        <button type="submit" class="logInButton">Post</button>
+        <button type="submit" id="postButton" class="logInButton">Post</button>
     </form>
 </div>
-
-
-<script>
-    $('#message').submit(function (e) {
-    /*Prevents the page to reaload like it normaly should*/
-    e.preventDefault()
-    /*Do the post through Ajax*/
-    $.ajax({
-        type: 'POST',
-        url: '/wallmessages/PostToWall',
-        data: { message: $('#input').val() }
-    })
-    /*Adds the new message to the html*/
-    $('#newMessages').append('<li>' + $('#input').val() + '</li>')
-    /*Sets the text input to empty*/
-    $('#input').val('')
-})</script>

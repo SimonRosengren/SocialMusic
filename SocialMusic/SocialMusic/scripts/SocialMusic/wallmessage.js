@@ -1,5 +1,5 @@
-﻿Socialmusic.Message = {
-    postWallmessage: function (e) {
+Socialmusic.Message = {
+    init: function (e) {
         $('#message').submit(function (e) {
             /*Prevents the page to reaload like it normaly should*/
             e.preventDefault()
