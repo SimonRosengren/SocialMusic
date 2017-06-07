@@ -1,5 +1,4 @@
 ﻿SocialMusic.Api = {
-    //HEJSAN
     init: function (e) {
         $("#searchForm").submit(function (e) {
             e.preventDefault()

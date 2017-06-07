@@ -29,8 +29,7 @@ namespace SocialMusic.Controllers
         
         [HttpPost]
         public void PostToWall(string message)
-        {
-            
+        {            
             WallMessage m = new WallMessage();
             using (var db = new SocialMusicDbContext())
             {

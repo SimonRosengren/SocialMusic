@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace SocialMusic.Models
 {
@@ -13,7 +9,5 @@ namespace SocialMusic.Models
         public string Password { get; set; }
         public string LastFmUsername { get; set; }
         public DateTime Created { get; set; }
-    }
-
-    
+    }   
 }

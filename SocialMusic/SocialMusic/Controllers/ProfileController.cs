@@ -1,8 +1,4 @@
 ﻿using SocialMusic.Attributes;
-using SocialMusic.DBContexts;
-using SocialMusic.Models;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SocialMusic.Controllers

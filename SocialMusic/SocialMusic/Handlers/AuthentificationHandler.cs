@@ -1,6 +1,4 @@
 ﻿using SocialMusic.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -73,12 +71,10 @@ namespace SocialMusic.Handlers
             return this.Session[AUTH_KEY] as User;
         }
         public string HashPassword(string input)
-        {
-            
+        {           
             using (var md5 = MD5.Create())
             {
                 byte[] hashBytes = md5.ComputeHash(Encoding.UTF8.GetBytes(input));
-
 
 
                 StringBuilder sBuilder = new StringBuilder();
