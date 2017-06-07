@@ -1,4 +1,4 @@
-﻿Socialmusic = {
+﻿Socialmusic.Message = {
     postWallmessage: function (e) {
         $('#message').submit(function (e) {
             /*Prevents the page to reaload like it normaly should*/

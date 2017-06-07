@@ -1,11 +1,17 @@
 ﻿var SocialMusic = {
-    init: function(){
-        $(document).ready(function () {
-            console.log("ready");
-        })
+    init: function () {
+        for (var prop in SocialMusic) {
+            let child = SocialMusic[prop];
+            if (typeof child === 'object' && child.hasOwnProperty('init')) {
+                child.init();
+            }
+        }
+
+        //SocialMusic.Api.init()
     }
 }
 
-$startup = function(){
+$(document).ready(function () {
     SocialMusic.init();
-}
+    console.log("ready");
+})

@@ -8,22 +8,15 @@ namespace SocialMusic.Controllers
 {
     public class AlbumApiController : ApiController
     {
-        new static LastFmApiHandler LFAH = new LastFmApiHandler();
-        Album[] albums = LFAH.SearchAlbum("Coloring book").ToArray();
+        LastFmApiHandler LFAH = new LastFmApiHandler();
 
-        public IEnumerable<Album> GetAllAlbums()
-        {
-            return albums;
-        }
-
+        [HttpGet]
+        [Route("api/search/album")]
         public IHttpActionResult GetAlbum(string name)
         {
-            var album = albums.FirstOrDefault((s) => s.Name == name);
-            if (album == null)
-            {
-                return NotFound();
-            }
-            return Ok(album);
+            Album[] albums = LFAH.SearchAlbum(name).ToArray();
+
+            return Ok(albums);
         }
     }
 }
