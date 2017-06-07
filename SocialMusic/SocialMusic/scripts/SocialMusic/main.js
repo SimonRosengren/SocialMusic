@@ -1,4 +1,4 @@
-var SocialMusic = {
+﻿var SocialMusic = {
     init: function () {
         for (var prop in SocialMusic) {
             let child = SocialMusic[prop];
