@@ -18,6 +18,7 @@ namespace SocialMusic.Controllers
         [HttpPost]
         public ActionResult LogIn(string username, string password)
         {
+            
             var authentificationHandler = new AuthentificationHandler(Session);
 
             User tempUser = new User();

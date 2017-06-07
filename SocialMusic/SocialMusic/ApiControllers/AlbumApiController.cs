@@ -14,7 +14,7 @@ namespace SocialMusic.Controllers
         [Route("api/search/album")]
         public IHttpActionResult GetAlbum(string name)
         {
-            Album[] albums = LFAH.SearchAlbum(name).ToArray();
+            Album[] albums = LFAH.SearchAlbum(name).ToArray();  
 
             return Ok(albums);
         }
